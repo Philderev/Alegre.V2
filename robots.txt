@@ -3,4 +3,4 @@ Allow: /
 Allow: /llms.txt
 Disallow: /thank-you.html
 
-Sitemap: https://alegresolutionsgs.com/sitemap.xml
+Sitemap: https://philderev.github.io/Alegre.V2/sitemap.xml
