@@ -1,0 +1,116 @@
+/* ===================================================================
+   FORMS - floating labels, validation states, GHL embed container
+   =================================================================== */
+
+.form-wrap{
+  background:rgba(255,255,255,0.02);
+  border:1px solid var(--border);
+  border-radius:var(--r-lg);
+  padding:8px;
+  min-height:420px;
+}
+
+/* GHL embeds (#ghl-contact-form / #ghl-audit-form) inherit a min-height
+   so layout doesn't jump while the iframe loads, plus a loading state. */
+[id^="ghl-"]{
+  min-height:420px;
+  position:relative;
+  border-radius:var(--r-md);
+  overflow:hidden;
+}
+[id^="ghl-"]::before{
+  content:"Loading form…";
+  position:absolute; inset:0;
+  display:flex; align-items:center; justify-content:center;
+  color:var(--muted); font-size:0.9rem; letter-spacing:0.04em;
+  background:rgba(255,255,255,0.02);
+}
+[id^="ghl-"].is-loaded::before{display:none;}
+[id^="ghl-"] iframe{width:100%; border:none; min-height:420px;}
+
+/* ---------- Native form fallback / lead magnet quick-form ---------- */
+.field{
+  position:relative;
+  margin-bottom:22px;
+}
+.field input,
+.field textarea,
+.field select{
+  width:100%;
+  background:rgba(255,255,255,0.03);
+  border:1px solid var(--border);
+  border-radius:var(--r-sm);
+  padding:20px 16px 10px;
+  font-family:var(--body-font);
+  font-size:1rem;
+  color:var(--pure-white);
+  transition:border-color .2s var(--ease), background .2s var(--ease);
+}
+.field textarea{min-height:120px; resize:vertical;}
+.field input:focus,
+.field textarea:focus,
+.field select:focus{
+  border-color:var(--blue);
+  background:rgba(255,255,255,0.05);
+  outline:none;
+}
+.field label{
+  position:absolute;
+  left:16px; top:18px;
+  font-size:0.95rem; color:var(--muted);
+  pointer-events:none;
+  transition:transform .18s var(--ease), font-size .18s var(--ease), color .18s var(--ease);
+  transform-origin:left top;
+}
+.field input:focus + label,
+.field input:not(:placeholder-shown) + label,
+.field textarea:focus + label,
+.field textarea:not(:placeholder-shown) + label,
+.field.has-value label{
+  transform:translateY(-9px) scale(0.78);
+  color:var(--blue);
+}
+.field input::placeholder,
+.field textarea::placeholder{color:transparent;}
+
+/* Error state */
+.field.has-error input,
+.field.has-error textarea,
+.field.has-error select{
+  border-color:#e64545;
+  background:rgba(230,69,69,0.06);
+}
+.field.has-error label{color:#ff8080;}
+.field-error{
+  display:none;
+  font-size:0.8rem; color:#ff8080; margin-top:6px;
+}
+.field.has-error .field-error{display:block;}
+
+/* Success state */
+.field.is-valid input,
+.field.is-valid textarea,
+.field.is-valid select{
+  border-color:#3fbf78;
+}
+.form-success{
+  display:none;
+  align-items:center; gap:12px;
+  padding:18px 20px; border-radius:var(--r-sm);
+  background:rgba(63,191,120,0.1); border:1px solid rgba(63,191,120,0.4);
+  color:#9be8bb; font-size:0.92rem; margin-top:16px;
+}
+.form-success.is-visible{display:flex;}
+
+.form-disclosure{font-size:0.78rem; color:var(--muted); margin-top:14px;}
+
+/* Checkbox / consent row */
+.consent-row{display:flex; align-items:flex-start; gap:10px; margin-bottom:20px;}
+.consent-row input[type="checkbox"]{
+  width:18px; height:18px; margin-top:2px; accent-color:var(--orange); flex-shrink:0;
+}
+.consent-row label{font-size:0.85rem; color:var(--muted); position:static; transform:none;}
+
+@media (max-width:600px){
+  .field input, .field textarea, .field select{padding:18px 14px 8px; font-size:0.95rem;}
+}

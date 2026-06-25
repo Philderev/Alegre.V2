@@ -1,0 +1,28 @@
+/* Supplementary responsive rules - fine-tuning beyond the inline
+   breakpoints already declared alongside each component in style.css.
+   Kept additive (new selectors only) to avoid specificity collisions. */
+
+@media (max-width: 1080px){
+  .container{padding:0 20px;}
+  .hero-cta-row .btn{padding:16px 26px;}
+}
+
+@media (max-width: 480px){
+  h1{font-size:clamp(2.2rem,9vw,2.8rem);}
+  h2{font-size:clamp(1.8rem,7vw,2.4rem);}
+  .section{padding:60px 0;}
+  .hero-sub{font-size:1rem;}
+  .stat .num{font-size:1.9rem;}
+  .system-card{grid-template-columns:56px 1fr; padding:24px 18px; gap:18px;}
+  .system-card .node{width:56px; height:56px; font-size:1.2rem;}
+  .panel{padding:26px;}
+}
+
+@media (min-width: 1600px){
+  .container{max-width:1440px;}
+}
+
+@media print{
+  .site-header, .back-to-top, video{display:none !important;}
+  body{background:#fff; color:#000;}
+}
