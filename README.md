@@ -22,7 +22,7 @@ are your real uploaded assets, already wired into every page.
 - `case-studies.html` uses placeholder names/metrics. The reviews page and homepage testimonials
   section are archived in `/archive/` for future use. Swap in real, attributed client reviews and case study numbers - get
   written permission before publishing client names or results.
-- `/assets/images/hero-poster.jpg` and `og-image.jpg` are still generated placeholders (a video
+- `/images/hero-poster.jpg` and `og-image.jpg` are still generated placeholders (a video
   frame grab works well for the poster - it's what shows before the video loads/on slow connections).
 - All 7 legal pages (`privacy-policy.html`, `terms-and-conditions.html`, `cookie-policy.html`,
   `accessibility-statement.html`, `disclaimer.html`, `do-not-sell.html`, `data-request.html`)
@@ -47,10 +47,10 @@ Say the word if you'd like me to compress them for you.
 /privacy-policy.html, terms-and-conditions.html, cookie-policy.html,
   accessibility-statement.html, disclaimer.html, do-not-sell.html, data-request.html
 /robots.txt, sitemap.xml, .htaccess
-/assets/css/  style.css, responsive.css, forms.css, animations.css
-/assets/js/   script.js, cookie-consent.js, lazyload.js, animations.js
-/assets/images/  (logos, hero poster, og image - see placeholders above)
-/assets/video/   (drop hero-video.mp4 here)
+/style.css, /responsive.css, /forms.css, /animations.css
+/script.js, /cookie-consent.js, /lazyload.js, /animations.js
+/images/  (logos, hero poster, og image - see placeholders above)
+/videos/  (hero video files)
 /services/    7 individual service pages
 /blog/        index.html, post-template.html, + 3 real sample posts
 ```
