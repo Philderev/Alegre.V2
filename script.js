@@ -17,6 +17,17 @@
     onScrollHeader();
     window.addEventListener("scroll", onScrollHeader, { passive:true });
 
+    /* ---------- Current page nav indicator ---------- */
+    var currentPage = window.location.pathname.split("/").pop() || "index.html";
+    document.querySelectorAll(".main-nav a[href]").forEach(function(link){
+      var href = link.getAttribute("href");
+      if(!href || href.indexOf("#") === 0 || href.indexOf("tel:") === 0 || href.indexOf("mailto:") === 0) return;
+      var linkPage = href.split("/").pop() || "index.html";
+      if(linkPage === currentPage){
+        link.classList.add("active");
+        link.setAttribute("aria-current", "page");
+      }
+    });
     /* ---------- Mobile nav toggle ---------- */
     var toggle = document.querySelector(".nav-toggle");
     var nav = document.querySelector(".main-nav");
