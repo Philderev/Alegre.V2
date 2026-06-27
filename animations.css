@@ -42,39 +42,6 @@
 }
 .sweep:hover::after{transform:scaleX(1);}
 
-/* exit-intent / lead-magnet popup */
-.popup-overlay{
-  position:fixed; inset:0; background:rgba(0,0,0,0.6);
-  display:flex; align-items:center; justify-content:center;
-  z-index:2000; opacity:0; pointer-events:none; transition:opacity .3s var(--ease);
-  backdrop-filter:blur(10px);
-  -webkit-backdrop-filter:blur(10px);
-  padding:20px;
-}
-.popup-overlay.is-open{opacity:1; pointer-events:auto;}
-.popup-card{
-  background:#111d33; border:1px solid rgba(119,203,241,.28); border-radius:var(--r-lg);
-  max-width:460px; width:min(460px, calc(100vw - 32px)); max-height:calc(100vh - 32px); overflow:auto; padding:32px;
-  transform:scale(0.92) translateY(10px); transition:transform .4s var(--ease), border-color .3s var(--ease), box-shadow .4s var(--ease);
-  position:relative;
-  box-shadow:var(--shadow);
-  transform-origin:center;
-}
-.popup-overlay.is-open .popup-card{transform:scale(1) translateY(0);}
-.popup-overlay.is-open .popup-card:hover{
-  transform:perspective(1000px) rotateY(-5deg) translateY(-6px);
-  border-color:rgba(119,203,241,.55);
-  box-shadow:0 32px 60px rgba(0,0,0,0.6), 0 0 0 1px rgba(119,203,241,.3);
-}
-.popup-close{
-  position:absolute; top:16px; right:16px; width:32px; height:32px;
-  display:flex; align-items:center; justify-content:center;
-  border-radius:50%; border:1px solid var(--border); color:var(--muted);
-}
-.popup-close:hover{color:var(--orange); border-color:var(--orange);}
-.popup-actions{margin-top:24px;}
-.popup-actions .btn{width:100%; justify-content:center;}
-
 @media (prefers-reduced-motion: reduce){
   .hero-content > *{animation:none; opacity:1;}
   .icon-float, .sweep::after{animation:none;}

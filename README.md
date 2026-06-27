@@ -43,7 +43,7 @@ Say the word if you'd like me to compress them for you.
 ## Structure
 ```
 /index.html, about.html, contact.html, services.html,
-  case-studies.html, blog.html, 404.html, thank-you.html
+  case-studies.html, blog/index.html, 404.html, thank-you.html
 /privacy-policy.html, terms-and-conditions.html, cookie-policy.html,
   accessibility-statement.html, disclaimer.html, do-not-sell.html, data-request.html
 /robots.txt, sitemap.xml, .htaccess
