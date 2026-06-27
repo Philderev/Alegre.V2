@@ -1,4 +1,38 @@
-@import url('fonts/inter.css');
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("fonts/InterVariable.woff2") format("woff2");
+}
+@font-face {
+  font-family: "InterDisplay";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/InterDisplay-Regular.woff2") format("woff2");
+}
+@font-face {
+  font-family: "InterDisplay";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("fonts/InterDisplay-SemiBold.woff2") format("woff2");
+}
+@font-face {
+  font-family: "InterDisplay";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("fonts/InterDisplay-Bold.woff2") format("woff2");
+}
+@font-face {
+  font-family: "InterDisplay";
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url("fonts/InterDisplay-Black.woff2") format("woff2");
+}
 
 /* ===================================================================
    ALEGRE SOLUTIONS GS - DESIGN SYSTEM
@@ -405,8 +439,13 @@ h4 .accent, h4 .accent-blue { color: inherit; }
   overflow:hidden;
   z-index:0;
 }
-.hero-media{position:absolute; inset:0; z-index:0;}
-.hero-media video, .hero-media img{width:100%; height:100%; object-fit:cover;}
+.hero-media{position:absolute; inset:0; z-index:0; background:#050914;}
+.hero-media video, .hero-media img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover;}
+.hero-media video{z-index:1;}
+.hero-poster{z-index:0;}
+@media (max-width:768px){
+  .hero-media video{display:none;}
+}
 .hero-overlay{
   position:absolute; inset:0;
   background:
