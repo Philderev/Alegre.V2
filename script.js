@@ -17,6 +17,30 @@
     onScrollHeader();
     window.addEventListener("scroll", onScrollHeader, { passive:true });
 
+    /* ---------- Section background color parallax ---------- */
+    var bgSections = document.querySelectorAll("[data-bg]");
+    if(bgSections.length){
+      var bgObserver = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){
+            document.documentElement.style.backgroundColor = entry.target.dataset.bg;
+          }
+        });
+      }, { threshold: 0.25 });
+      bgSections.forEach(function(s){ bgObserver.observe(s); });
+
+      /* Reset to base color when no data-bg section is in view (hero/footer) */
+      var resetObserver = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){
+            document.documentElement.style.backgroundColor = "#090d1a";
+          }
+        });
+      }, { threshold: 0.25 });
+      var hero = document.querySelector(".hero");
+      if(hero) resetObserver.observe(hero);
+    }
+
     /* ---------- Current page nav indicator ---------- */
     var currentPage = window.location.pathname.split("/").pop() || "index.html";
     document.querySelectorAll(".main-nav a[href]").forEach(function(link){
