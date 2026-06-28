@@ -68,7 +68,7 @@
 
   --shadow-soft: 0 10px 30px rgba(0,0,0,0.5);
   --shadow: 0 18px 70px rgba(0,0,0,.55);
-  --ease: cubic-bezier(.2,.9,.2,1);
+  --ease: cubic-bezier(.19, 1, .22, 1);
 
   --container: 1280px;
   --wide-container: 1440px;
@@ -1148,7 +1148,7 @@ body.legal-doc .eyebrow::before { background: #ccc; }
 /* ---------- Utility ---------- */
 .badge{display:inline-flex; align-items:center; gap:8px; font-size:0.78rem; letter-spacing:0.06em; text-transform:uppercase; padding:7px 14px; border-radius:999px; border:1px solid var(--border); color:var(--blue);}
 .divider{height:1px; background:var(--border); margin:60px 0;}
-.reveal{opacity:0; transform:translateY(24px); transition:opacity .7s var(--ease), transform .7s var(--ease);}
+.reveal{opacity:0; transform:translateY(24px); transition:opacity .9s var(--ease), transform .9s var(--ease);}
 .reveal.is-visible{opacity:1; transform:translateY(0);}
 .card.reveal.is-visible:hover{transform:perspective(1000px) rotateY(-5deg) translateY(-6px) !important;}
 .grid .card.reveal.is-visible:first-child:hover{transform:perspective(1000px) rotateY(5deg) translateY(-6px) !important;}

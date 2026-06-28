@@ -96,27 +96,41 @@
     var existing = getConsent();
     if(existing){ applyConsent(existing); }
 
-    var banner = buildBanner();
     var settings = buildSettingsPanel();
     settings.style.display = "none";
-    document.body.appendChild(banner);
     document.body.appendChild(settings);
 
-    if(existing){ banner.style.display = "none"; }
+    var banner = null;
+    function ensureBanner(){
+      if(existing || banner) return;
+      banner = buildBanner();
+      document.body.appendChild(banner);
+      banner.addEventListener("click", onBannerClick);
+    }
 
-    banner.addEventListener("click", function(e){
+    function scheduleBanner(){
+      if(existing) return;
+      var show = function(){ window.setTimeout(ensureBanner, 1200); };
+      if("requestIdleCallback" in window){
+        window.requestIdleCallback(show, { timeout: 2500 });
+      } else {
+        window.addEventListener("load", show, { once:true });
+      }
+    }
+
+    function onBannerClick(e){
       var action = e.target.getAttribute("data-cookie");
       if(!action) return;
       if(action === "accept"){
         setConsent({ essential:true, analytics:true, marketing:true });
-        banner.style.display = "none";
+        if(banner){ banner.style.display = "none"; }
       } else if(action === "decline"){
         setConsent({ essential:true, analytics:false, marketing:false });
-        banner.style.display = "none";
+        if(banner){ banner.style.display = "none"; }
       } else if(action === "settings"){
         settings.style.display = "flex";
       }
-    });
+    }
 
     settings.addEventListener("click", function(e){
       var action = e.target.getAttribute("data-cookie");
@@ -127,7 +141,7 @@
         var marketing = settings.querySelector("#cookie-toggle-marketing").checked;
         setConsent({ essential:true, analytics:analytics, marketing:marketing });
         settings.style.display = "none";
-        banner.style.display = "none";
+        if(banner){ banner.style.display = "none"; }
       }
     });
 
@@ -141,6 +155,8 @@
         settings.style.display = "flex";
       });
     });
+
+    scheduleBanner();
   });
 
   window.AlegreConsent = { get:getConsent, set:setConsent };

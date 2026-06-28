@@ -20,7 +20,7 @@
 }
 
 .hero-content > *{
-  animation:fadeUp .8s var(--ease) both;
+  animation:fadeUp 1.15s var(--ease) both;
 }
 .hero-content > *:nth-child(1){animation-delay:.05s;}
 .hero-content > *:nth-child(2){animation-delay:.15s;}
@@ -45,4 +45,8 @@
 @media (prefers-reduced-motion: reduce){
   .hero-content > *{animation:none; opacity:1;}
   .icon-float, .sweep::after{animation:none;}
+}
+
+@media (max-width:768px){
+  .hero-content > *{animation:none; opacity:1;}
 }
